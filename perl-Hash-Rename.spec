@@ -26,14 +26,14 @@ Using this module you can rename a hash's keys in place.
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-perl Makefile.PL INSTALLDIRS=vendor
-%make
+perl Build.PL installdirs=vendor
+./Build
 
 %check
-%make test
+./Build test
 
 %install
-%makeinstall_std
+./Build install destdir=%{buildroot}
 
 %files
 %doc Changes README
